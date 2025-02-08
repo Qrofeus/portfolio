@@ -1,360 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="icon" type="image/svg+xml" href="assets/svg/logo-monogram.svg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-monogram.svg" />
   <title>Ninad Deshpande</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Scripts -->
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script src="scripts/script.js" defer></script>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/home.css">
+  
+  <!-- JavaScript -->
+  <script defer src="scripts/script.js"></script>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <a href="#" class="nav_item logo"><svg>
-          <use href="#logo"></use>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo"><a href="./">Ninad Deshpande</a></div>
+    <ul class="nav-links">
+      <li><a href="projects/">Projects</a></li>
+      <li><a href="experience/">Experience</a></li>
+      <li><a href="education/">Education</a></li>
+      <li><a href="contact/">Contact</a></li>
+      <li><a href="./assets/docs/Ninad Deshpande - Resume.pdf" target="_blank" rel="noopener noreferrer"></a></li>
+      <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+          <svg width="24" height="24" fill="none">
+            <use href="#icon-sun"></use>
+          </svg>
+          <p id="theme-text" class="theme-text">Change Theme</p>
+        </button></li>
+    </ul>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Menu Toggle">
+      <svg width="24" height="24" fill="none">
+        <use href="#icon-hamburger"></use>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Hello, I'm Ninad Deshpande</h1>
+    <p>Software Developer</p>
+
+    <!-- Social Icons -->
+    <div class="socials">
+      <a href="https://github.com/qrofeus" target="_blank" aria-label="GitHub">
+        <svg width="32" height="32" fill="currentColor">
+          <use href="#icon-github"></use>
         </svg>
       </a>
-      <ul class="nav_links" id="nav_links" data-visible="false">
-        <li class="nav_item nav_link"><a href="assets/docs/Ninad Deshpande - Resume.pdf" target="_blank">Resume</a></li>
-        <li class="nav_item nav_link"><a href="./#highlights">Projects</a></li>
-        <li class="nav_item nav_link"><a href="./#contact">Contact</a></li>
-        <li class="nav_item"><svg id="theme_icon">
-            <use href="#moon"></use>
-          </svg></li>
-      </ul>
-      <svg id="menu_icon">
-        <use href="#hamburger"></use>
-      </svg>
-    </nav>
-  </header>
-  <section class="wrapper introduction">
-    <p>Hi, I am</p>
-    <span class="intro_name">Ninad Deshpande</span>
-    <p>
-      I am a software developer improving my understanding of the
-      programming world one project at a time. All my projects are built
-      from ground up, including this webpage.
-    </p>
-    <p>
-      Source code for all my projects can be found on my Github profile.
-    </p>
-    <div class="intro_links">
-      <a href="https://github.com/Qrofeus" target="_blank">
-        <svg>
-          <use href="#github"></use>
+      <a href="https://linkedin.com/in/qrofeus" target="_blank" aria-label="LinkedIn">
+        <svg width="32" height="32" fill="currentColor">
+          <use href="#icon-linkedin"></use>
         </svg>
       </a>
-      <a href="https://linkedin.com/in/qrofeus" target="_blank">
-        <svg>
-          <use href="#linked_in"></use>
+      <a href="mailto:hello@qrofeus.dev" aria-label="Email">
+        <svg width="32" height="32" fill="currentColor">
+          <use href="#icon-email"></use>
         </svg>
       </a>
     </div>
   </section>
 
-  <section id="highlights">
-    <div class="highlights">
-      <div class="highlight">
-        <img src="assets/img/img_enigma_machine.jpg" alt="Project Image" />
-        <div class="project_description">
-          <span class="project_title">Enigma Machine Simulation: Console</span>
-          <ul class="technologies">
-            <li>Python</li>
-          </ul>
-          <p class="description">
-            A console based simulation of the widely known Enigma Machine,
-            allowing you to encrypt and decrypt messages using methods similar
-            to the ones used in war times.
-          </p>
-          <div class="buttons">
-            <a href="https://github.com/Qrofeus/Enigma-Machine" target="_blank" class="btn">
-              <svg>
-                <use href="#code"></use>
-              </svg>
-              Source Code
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="highlight disabled">
-        <img src="assets/img/img_recipe_roulette.jpg" alt="Project Image" />
-        <div class="project_description">
-          <span class="project_title">Recipe Roulette - Web Application</span>
-          <ul class="technologies">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>SQL</li>
-            <li>AWS</li>
-          </ul>
-          <p class="description">
-            A web application that suggests you a random recipe to cook
-            everyday, from your previously selected list. Customise your list
-            by selecting one from database or add your own.
-          </p>
-          <div class="buttons">
-            <a href="https://" target="_blank" class="btn">
-              <svg>
-                <use href="#demo"></use>
-              </svg>
-              Demo
-            </a>
-            <a href="https://github.com/Qrofeus/recipe-roulette" target="_blank" class="btn">
-              <svg>
-                <use href="#code"></use>
-              </svg>
-              Source Code
-            </a>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="highlight disabled">
-        <img src="assets/img/img_interesting_articles.jpg" alt="Project Image" />
-        <div class="project_description">
-          <span class="project_title">Interesting Articles - Email Subscription</span>
-          <ul class="technologies">
-            <li>Unknown</li>
-          </ul>
-          <p class="description">
-            An email subscription that gives you a selection of articles from
-            your selected websites. Select your frequency to match your needs.
-          </p>
-          <div class="buttons">
-            <a href="https://" target="_blank" class="btn">
-              <svg>
-                <use href="#demo"></use>
-              </svg>
-              Demo
-            </a>
-            <a href="https://github.com/Qrofeus/interesting-articles" target="_blank" class="btn">
-              <svg>
-                <use href="#code"></use>
-              </svg>
-              Source Code
-            </a>
-          </div>
-        </div>
-      </div> -->
-    </div>
-  </section>
 
-  <section class="wrapper">
-    <span class="section_title">Web Application - Mini Projects</span>
-    <div class="projects_list">
-      <div class="project project_description">
-        <div class="title_card">
-          <span class="project_title">Online Quiz</span>
-          <div style="display: flex; gap: 0.5em;">
-            <a href="http://quiz.qrofeus.dev" target="_blank" class="btn">
-              <svg>
-                <use href="#demo"></use>
-              </svg>
-              View
-            </a>
-            <a href="https://github.com/Qrofeus/online-quiz" target="_blank" class="project_title">
-              <svg>
-                <use href="#open"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <ul class="technologies">
-          <li>OpenTDB API</li>
-        </ul>
-        <p class="description">A multiple choice trivia quiz of 10 questions fetched using the <a
-            href="http://https://opentdb.com/" target="_blank" rel="noopener noreferrer">OpenTDB</a> API.</p>
-      </div>
-      <div class="project project_description">
-        <div class="title_card">
-          <span class="project_title">Weather App</span>
-          <div style="display: flex; gap: 0.5em;">
-            <a href="http://weather.qrofeus.dev" target="_blank" class="btn">
-              <svg>
-                <use href="#demo"></use>
-              </svg>
-              View
-            </a>
-            <a href="https://github.com/Qrofeus/weather-web-application" target="_blank">
-              <svg>
-                <use href="#open"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <ul class="technologies">
-          <li>OpenWeather API</li>
-        </ul>
-        <p class="description">A weather web application that fetches real-time weather data using the
-          <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer">OpenWeather</a> API.
-        </p>
-      </div>
-      <div class="project project_description">
-        <div class="title_card">
-          <span class="project_title">Digital Clock</span>
-          <div style="display: flex; gap: 0.5em;">
-            <a href="https://qrofeus.github.io/digital-clock-webapp/" target="_blank" class="btn">
-              <svg>
-                <use href="#demo"></use>
-              </svg>
-              View
-            </a>
-            <a href="https://github.com/Qrofeus/digital-clock-webapp" target="_blank">
-              <svg>
-                <use href="#open"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <p class="description">A simple digital clock web application that displays the current time dynamically updated
-          using JavaScript.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Hidden SVG Icons -->
+  <svg aria-hidden="true" style="display: none;">
+    <symbol id="icon-github" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
+             0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52 
+             -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 
+             0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 
+             1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 
+             0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+    </symbol>
 
-  <section id="other_projects" class="wrapper">
-    <span class="section_title">Other Projects</span>
-    <div class="projects_list">
-      <div class="project project_description">
-        <div class="title_card">
-          <span class="project_title">Sorting Algorithms - Visualization</span>
-          <a href="https://github.com/Qrofeus/sorting-algorithms" target="_blank"><svg>
-              <use href="#open"></use>
-            </svg>
-          </a>
-        </div>
-        <ul class="technologies">
-          <li>Python</li>
-          <li>PyGame</li>
-        </ul>
-        <p class="description">Python implementations for widely known sorting algorithms. Complete with explanation
-          and animations that help in understanding the sorting algorithms.</p>
-      </div>
-      <!-- <div class="project project_description disabled">
-        <div class="title_card">
-          <span class="project_title">Path Finding Algorithms - Visualization</span>
-          <a href="http://https://github.com/Qrofeus/path-finding-algorithms" target="_blank">
-            <svg>
-              <use href="#open"></use>
-            </svg>
-          </a>
-        </div>
-        <ul class="technologies">
-          <li>Python</li>
-          <li>PyGame</li>
-        </ul>
-        <p class="description">Different path-finding algorithms explained and implemented in Python. Custom
-          visualizations help in understanding all the path-finding algorithms.</p>
-      </div> -->
-    </div>
-  </section>
-
-  <section>
-    <div id="contact" class="wrapper">
-      <span class="section_title">Send me a message</span>
-      <div class="contact">
-        Fill out the contact form or send me an email directly at
-        <span><a href="mailto:hello@qrofeus.dev">hello@qrofeus.dev</a></span>
-        <br>
-        I will get back to you as soon as possible.
-        <form id="contact_form" onsubmit="send_email(); reset(); return false;">
-          <input type="text" id="form_name" class="contact_field" placeholder="Your Name*" required="" />
-          <input type="email" id="form_mail" class="contact_field" placeholder="Your Email address*" required="" />
-          <textarea id="form_message" class="contact_field" rows="6" placeholder="Message*" required=""></textarea>
-          <button type="submit" class="btn">Submit</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <div class="alert hidden" id="processing">Sending contact request</div>
-  <div class="alert hidden" id="success">Success</div>
-  <div class="alert hidden" id="failure">Failure</div>
-
-  <footer>
-    <a class="btn" href="mailto:hello@qrofeus.dev" target="_blank">
-      <svg>
-        <use href="#mail"></use>
-      </svg>
-      Email
-    </a>
-    <a class="btn" href="https://linkedin.com/in/qrofeus/" target="_blank">
-      <svg>
-        <use href="#linked_in"></use>
-      </svg>
-      LinkedIn
-    </a>
-    <a class="btn" href="https://github.com/Qrofeus" target="_blank">
-      <svg>
-        <use href="#github"></use>
-      </svg>
-      Github
-    </a>
-  </footer>
-
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="hidden">
-    <symbol id="github" viewBox="0 0 24 24">
+    <symbol id="icon-linkedin" viewBox="0 0 16 16">
       <path
-        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
-      </path>
+        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708C16 
+             15.487 15.474 16 14.825 16H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212 
+             c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.247-1.342-1.247-.822 0-1.357.537-1.357 1.247 0 .694.52 1.248 1.327 1.248h.014zM13.458 
+             13.394V9.359c0-2.034-1.084-2.979-2.529-2.979-1.162 0-1.688.64-1.977 1.091v-0.933H6.542c.03.616 0 7.225 0 7.225h2.41V9.425c0-.21.015-.42.077-.573.168-.42.552-.854 1.197-.854.845 0 1.183.644 1.183 1.588v3.808h2.049z" />
     </symbol>
-    <symbol id="linked_in" viewBox="0 0 24 24">
-      <path
-        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
-      </path>
+
+    <symbol id="icon-email" viewBox="0 0 16 16">
+      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 
+             1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.708 2.825L15 11.217V5.383zM1 
+             5.383v5.834l4.708-2.825L1 5.383zm5.232 3.148L1.5 12h13l-4.732-3.469-1.768 1.062-1.768-1.062z" />
     </symbol>
-    <symbol id="mail" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 4.99L4 6zm0 12H4V8l8 5l8-5z" />
-    </symbol>
-    <symbol id="open" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h6q.425 0 .713.288T12 4q0 .425-.288.713T11 5H5v14h14v-6q0-.425.288-.713T20 12q.425 0 .713.288T21 13v6q0 .825-.588 1.413T19 21H5Zm4-6q-.275-.275-.275-.7T9 13.6L17.6 5H15q-.425 0-.713-.288T14 4q0-.425.288-.713T15 3h5q.425 0 .713.288T21 4v5q0 .425-.288.713T20 10q-.425 0-.713-.288T19 9V6.4l-8.625 8.625q-.275.275-.675.275T9 15Z">
-      </path>
-    </symbol>
-    <symbol id="close" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z">
-      </path>
-    </symbol>
-    <symbol id="hamburger" viewBox="0 0 24 24">
+
+    <symbol id="icon-sun" viewBox="0 0 24 24">
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M5 17h14M5 12h14M5 7h14"></path>
-    </symbol>
-    <symbol id="logo" viewBox="0 0 791 94" x="0" y="0">
-        <rect width="100%" height="100%" fill="transparent"></rect>
-        <path fill="currentColor"
-            d="M61.58 6.41v67.22H47.19L21.27 29.38v44.25H7.82V6.41h14.39l25.92 44.3V6.41zm26.21 3.37q0 1.78-.68 3.33t-1.86 2.7q-1.17 1.15-2.74 1.83-1.57.67-3.35.67t-3.35-.67q-1.57-.68-2.72-1.83-1.15-1.15-1.83-2.7-.68-1.55-.68-3.33 0-1.73.68-3.3.68-1.57 1.83-2.72 1.15-1.15 2.72-1.83 1.57-.68 3.35-.68t3.35.68q1.57.68 2.74 1.83 1.18 1.15 1.86 2.72.68 1.57.68 3.3m-2.21 13.64v50.21H72.69V23.42zm22.55 21.52v28.69h-12.8V23.42h3.1l4.21 4.88q3.1-2.81 7.01-4.34 3.92-1.52 8.18-1.52 4.6 0 8.67 1.76 4.08 1.76 7.13 4.83 3.05 3.07 4.8 7.17 1.76 4.1 1.76 8.74v28.69h-12.8V44.94q0-1.97-.75-3.73-.75-1.75-2.06-3.07-1.31-1.31-3.04-2.06-1.74-.75-3.71-.75-2.01 0-3.79.75-1.79.75-3.1 2.06-1.31 1.32-2.06 3.07-.75 1.76-.75 3.73m89.76-21.42v50.11h-3.09l-4.97-6.89q-1.83 1.64-3.86 3.07-2.04 1.43-4.29 2.48-2.25 1.06-4.62 1.67-2.37.6-4.81.6-5.29 0-9.96-1.78-4.66-1.78-8.15-5.18-3.5-3.39-5.51-8.32-2.02-4.92-2.02-11.2 0-5.86 2.02-10.76 2.01-4.9 5.51-8.41 3.49-3.52 8.15-5.46 4.67-1.95 9.96-1.95 2.44 0 4.83.61t4.64 1.69q2.25 1.08 4.29 2.53 2.04 1.45 3.82 3.14l4.97-5.95zM185 48.08q0-2.62-1-5.09-1.01-2.46-2.75-4.35-1.73-1.9-4.05-3.05t-4.95-1.15q-2.62 0-4.94.89-2.32.89-4.03 2.63-1.71 1.73-2.7 4.28-.98 2.56-.98 5.84t.98 5.84q.99 2.55 2.7 4.29 1.71 1.73 4.03 2.62 2.32.89 4.94.89 2.63 0 4.95-1.15 2.32-1.15 4.05-3.04 1.74-1.9 2.75-4.36 1-2.46 1-5.09m71.16-44.62v70.17h-3.09l-4.97-6.89q-1.83 1.64-3.87 3.07t-4.29 2.48q-2.25 1.06-4.62 1.67-2.36.6-4.8.6-5.3 0-9.96-1.99-4.67-1.99-8.16-5.53t-5.51-8.39q-2.01-4.85-2.01-10.57 0-5.67 2.01-10.55 2.02-4.87 5.51-8.43 3.49-3.57 8.16-5.58 4.66-2.02 9.96-2.02 1.69 0 3.49.28 1.81.28 3.52.92 1.71.63 3.21 1.66 1.5 1.03 2.53 2.53V3.46zm-12.89 44.62q0-2.62-1.01-5.09-1.01-2.46-2.74-4.35-1.73-1.9-4.05-3.05-2.33-1.15-4.95-1.15-2.63 0-4.95.94-2.32.93-4.03 2.69-1.71 1.76-2.69 4.29-.99 2.53-.99 5.72 0 2.77.99 5.25.98 2.48 2.69 4.36 1.71 1.87 4.03 2.95 2.32 1.08 4.95 1.08 2.62 0 4.95-1.15 2.32-1.15 4.05-3.04 1.73-1.9 2.74-4.36 1.01-2.46 1.01-5.09m104.72-8.06q0 4.64-1.2 8.93-1.19 4.29-3.4 8.01-2.2 3.73-5.25 6.8-3.04 3.07-6.79 5.27-3.75 2.21-8.04 3.4-4.29 1.2-8.93 1.2h-20.25V6.41h20.25q4.64 0 8.93 1.19 4.29 1.2 8.04 3.4 3.75 2.21 6.79 5.28 3.05 3.07 5.25 6.79 2.21 3.73 3.4 8.02 1.2 4.29 1.2 8.93m-13.45 0q0-4.17-1.57-7.83-1.58-3.66-4.32-6.4t-6.42-4.33q-3.68-1.6-7.85-1.6h-6.7v40.31h6.7q4.17 0 7.85-1.57 3.68-1.57 6.42-4.31 2.74-2.74 4.32-6.42 1.57-3.68 1.57-7.85m64.96-7.6-24 28.93q.75.23 1.5.3.75.07 1.5.07 1.88 0 3.61-.51 1.74-.52 3.26-1.48 1.52-.96 2.72-2.34 1.2-1.39 1.95-3.08l9.37 9.43q-1.78 2.53-4.1 4.54-2.32 2.02-5.02 3.43-2.69 1.4-5.67 2.13-2.98.72-6.12.72-5.29 0-9.96-1.96-4.66-1.97-8.15-5.49-3.5-3.51-5.51-8.37-2.02-4.85-2.02-10.66 0-5.95 2.02-10.87 2.01-4.93 5.51-8.4 3.49-3.46 8.15-5.39 4.67-1.92 9.96-1.92 3.14 0 6.14.75 3 .75 5.7 2.16 2.7 1.4 5.04 3.44t4.12 4.57m-32.34 22.32 14.91-19.78q-.89-.33-1.76-.43-.87-.09-1.81-.09-2.62 0-4.94.96-2.32.96-4.03 2.74-1.71 1.78-2.7 4.29-.98 2.51-.98 5.65 0 .7.07 1.59.07.89.23 1.81.17.91.4 1.76.24.84.61 1.5m66.33 18.89h-29.25V60.88h29.25q1.31 0 2.25-.94t.94-2.25q0-1.36-.94-1.78-.94-.42-2.25-.42h-13.31q-3.33 0-6.24-1.27-2.9-1.26-5.06-3.44-2.16-2.18-3.4-5.09-1.24-2.91-1.24-6.23 0-3.33 1.24-6.24t3.4-5.06q2.16-2.16 5.06-3.4 2.91-1.24 6.24-1.24h25.92v12.75h-25.92q-1.32 0-2.25.94-.94.93-.94 2.25 0 1.35.94 2.32.93.96 2.25.96h13.31q3.28 0 6.19 1.1 2.9 1.1 5.06 3.07 2.15 1.97 3.42 4.73 1.27 2.77 1.27 6.05 0 3.33-1.27 6.21t-3.42 5.06q-2.16 2.18-5.06 3.43-2.91 1.24-6.19 1.24m35.53-28.69v28.69h-12.8V3.46h12.8v22.17q2.3-1.74 4.73-2.46 2.44-.73 4.97-.73 4.64 0 8.72 1.76 4.08 1.76 7.1 4.83 3.03 3.07 4.78 7.17 1.76 4.1 1.76 8.74v28.69h-12.89V44.94h.1q0-1.97-.75-3.73-.75-1.75-2.07-3.07-1.31-1.31-3.04-2.06-1.74-.75-3.71-.75-2.01 0-3.79.75-1.79.75-3.1 2.06-1.31 1.32-2.06 3.07-.75 1.76-.75 3.73m54.05 25.31v22.5h-12.89V23.42h3.09l5.11 6.05q1.73-1.64 3.8-3.09 2.06-1.46 4.29-2.51 2.22-1.06 4.61-1.66 2.39-.61 4.83-.61 5.3 0 9.96 1.89 4.67 1.9 8.16 5.37t5.51 8.37q2.01 4.9 2.01 10.85 0 6.19-2.01 11.13-2.02 4.95-5.51 8.39-3.49 3.45-8.16 5.28-4.66 1.83-9.96 1.83-1.69 0-3.35-.38-1.67-.37-3.28-1.01-1.62-.63-3.19-1.43-1.57-.79-3.02-1.64m25.64-22.17q0-3.19-1.01-5.72t-2.74-4.29q-1.74-1.76-4.08-2.69-2.34-.94-4.97-.94-2.62 0-4.94.94-2.33.93-4.06 2.69-1.73 1.76-2.74 4.29-1.01 2.53-1.01 5.72 0 3.05 1.01 5.58 1.01 2.53 2.74 4.31 1.73 1.78 4.06 2.77 2.32.98 4.94.98 2.63 0 4.97-.98 2.34-.99 4.08-2.77 1.73-1.78 2.74-4.31 1.01-2.53 1.01-5.58m68.53-24.56v50.11h-3.1l-4.96-6.89q-1.83 1.64-3.87 3.07t-4.29 2.48q-2.25 1.06-4.62 1.67-2.36.6-4.8.6-5.3 0-9.96-1.78-4.67-1.78-8.16-5.18-3.49-3.39-5.51-8.32-2.01-4.92-2.01-11.2 0-5.86 2.01-10.76 2.02-4.9 5.51-8.41 3.49-3.52 8.16-5.46 4.66-1.95 9.96-1.95 2.44 0 4.83.61t4.64 1.69q2.25 1.08 4.29 2.53 2.03 1.45 3.82 3.14l4.96-5.95zm-12.89 24.56q0-2.62-1.01-5.09-1.01-2.46-2.74-4.35-1.74-1.9-4.06-3.05-2.32-1.15-4.94-1.15-2.63 0-4.95.89-2.32.89-4.03 2.63-1.71 1.73-2.69 4.28-.99 2.56-.99 5.84t.99 5.84q.98 2.55 2.69 4.29 1.71 1.73 4.03 2.62 2.32.89 4.95.89 2.62 0 4.94-1.15 2.32-1.15 4.06-3.04 1.73-1.9 2.74-4.36 1.01-2.46 1.01-5.09m35.44-3.14v28.69h-12.8V23.42h3.09l4.22 4.88q3.09-2.81 7.01-4.34 3.91-1.52 8.18-1.52 4.59 0 8.67 1.76t7.13 4.83q3.04 3.07 4.8 7.17 1.76 4.1 1.76 8.74v28.69h-12.8V44.94q0-1.97-.75-3.73-.75-1.75-2.06-3.07-1.31-1.31-3.05-2.06-1.73-.75-3.7-.75-2.02 0-3.8.75-1.78.75-3.09 2.06-1.31 1.32-2.06 3.07-.75 1.76-.75 3.73m89.67-41.48v70.17h-3.1l-4.97-6.89q-1.82 1.64-3.86 3.07t-4.29 2.48q-2.25 1.06-4.62 1.67-2.37.6-4.8.6-5.3 0-9.96-1.99-4.67-1.99-8.16-5.53t-5.51-8.39q-2.01-4.85-2.01-10.57 0-5.67 2.01-10.55 2.02-4.87 5.51-8.43 3.49-3.57 8.16-5.58 4.66-2.02 9.96-2.02 1.68 0 3.49.28 1.8.28 3.51.92 1.72.63 3.22 1.66 1.5 1.03 2.53 2.53V3.46zm-12.89 44.62q0-2.62-1.01-5.09-1.01-2.46-2.74-4.35-1.74-1.9-4.06-3.05-2.32-1.15-4.94-1.15-2.63 0-4.95.94-2.32.93-4.03 2.69-1.71 1.76-2.7 4.29-.98 2.53-.98 5.72 0 2.77.98 5.25.99 2.48 2.7 4.36 1.71 1.87 4.03 2.95 2.32 1.08 4.95 1.08 2.62 0 4.94-1.15 2.32-1.15 4.06-3.04 1.73-1.9 2.74-4.36 1.01-2.46 1.01-5.09m66.61-15.66-24 28.93q.75.23 1.5.3.75.07 1.5.07 1.87 0 3.61-.51 1.73-.52 3.25-1.48 1.53-.96 2.72-2.34 1.2-1.39 1.95-3.08l9.37 9.43q-1.78 2.53-4.1 4.54-2.32 2.02-5.01 3.43-2.7 1.4-5.68 2.13-2.97.72-6.11.72-5.3 0-9.96-1.96-4.67-1.97-8.16-5.49-3.49-3.51-5.51-8.37-2.01-4.85-2.01-10.66 0-5.95 2.01-10.87 2.02-4.93 5.51-8.4 3.49-3.46 8.16-5.39 4.66-1.92 9.96-1.92 3.14 0 6.14.75 3 .75 5.69 2.16 2.7 1.4 5.04 3.44t4.13 4.57m-32.35 22.32 14.91-19.78q-.89-.33-1.76-.43-.87-.09-1.8-.09-2.63 0-4.95.96-2.32.96-4.03 2.74-1.71 1.78-2.7 4.29-.98 2.51-.98 5.65 0 .7.07 1.59.07.89.23 1.81.17.91.4 1.76.24.84.61 1.5">
-        </path>
-    </symbol>
-    <symbol id="sun" viewBox="0 0 24 24">
-      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
         d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
     </symbol>
-    <symbol id="moon" viewBox="0 0 24 24">
+
+    <symbol id="icon-moon" viewBox="0 0 24 24">
       <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
         d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
     </symbol>
-    <symbol id="demo" viewBox="0 0 32 32">
-      <path fill="currentColor" d="M20 2v12l10-6z" />
-      <path fill="currentColor"
-        d="M28 14v8H4V6h10V4H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8v4H8v2h16v-2h-4v-4h8a2 2 0 0 0 2-2v-8zM18 28h-4v-4h4z" />
+
+    <symbol id="icon-hamburger" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M5 17h14M5 12h14M5 7h14"></path>
     </symbol>
-    <symbol id="code" viewBox="0 0 24 24">
-      <g fill="none">
-        <path d="M0 0h24v24H0z" />
-        <path fill="currentColor"
-          d="M14.486 3.143a1 1 0 0 1 .692 1.233l-4.43 15.788a1 1 0 0 1-1.926-.54l4.43-15.788a1 1 0 0 1 1.234-.693M7.207 7.05a1 1 0 0 1 0 1.414L3.672 12l3.535 3.535a1 1 0 1 1-1.414 1.415L1.55 12.707a1 1 0 0 1 0-1.414L5.793 7.05a1 1 0 0 1 1.414 0m9.586 1.414a1 1 0 1 1 1.414-1.414l4.243 4.243a1 1 0 0 1 0 1.414l-4.243 4.243a1 1 0 0 1-1.414-1.415L20.328 12z" />
-      </g>
+
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z">
+      </path>
     </symbol>
   </svg>
 </body>
