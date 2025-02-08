@@ -1,6 +1,8 @@
 /* Projects Page Styles */
 .projects-container {
-    padding-block: 6em;
+    max-width: 75em;
+    padding: 5em;
+    margin: 0 auto;
 }
 
 .projects-container h1 {
@@ -10,8 +12,7 @@
 }
 
 .project-section {
-    margin-bottom: 50px;
-    padding-inline: 3em;
+    margin: 0 0 5em 0;
     & h2 {
         font-size: 2rem;
         margin-bottom: 20px;
@@ -28,7 +29,6 @@
 }
 
 .project-card {
-    max-width: 30%;
     flex: 1 1 300px;
     background-color: var(--background-color);
     border: 1px solid var(--text-color-translucent);
@@ -64,6 +64,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1em;
 }
 
 .project-links {
@@ -109,6 +110,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .projects-container {
+        padding-inline: 0;
+    }
+
     .projects-container h1 {
         font-size: 2.5rem;
     }
