@@ -1,0 +1,110 @@
+/* Experience Page Styles */
+
+.experience-container {
+    padding-block: 6em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .experience-container h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .experience-section {
+    margin-bottom: 50px;
+    padding-inline: 3em;
+  }
+  
+  .experience-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  /* Experience Entries */
+  .experience-entry {
+    padding: 1em;
+    border-bottom: 1px solid var(--secondary-text-color-translucent);
+  }
+  
+  .experience-entry h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
+  }
+  
+  .experience-entry p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+  }
+
+  .experience-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+  }
+  
+  .responsibilities-list {
+    list-style: disc;
+    margin-left: 1.5em;
+    color: var(--secondary-text-color);
+  }
+  
+  .responsibilities-list li {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Responsive Design */
+  
+  @media (max-width: 768px) {
+    .experience-container h1 {
+      font-size: 2.5rem;
+    }
+  
+    .experience-section {
+      padding-inline: 1em;
+    }
+  
+    .experience-section h2 {
+      font-size: 1.8rem;
+    }
+
+    .experience-entry {
+      padding: 1em 0;
+    }
+  
+    .experience-entry h3 {
+      font-size: 1.5rem;
+    }
+
+    .experience-details {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .experience-container h1 {
+      font-size: 2rem;
+    }
+  
+    .experience-section h2 {
+      font-size: 1.5rem;
+    }
+  
+    .experience-entry p {
+      font-size: 0.9rem;
+    }
+  
+    .responsibilities-list {
+      margin-left: 1em;
+    }
+  
+    .responsibilities-list li {
+      font-size: 0.9rem;
+    }
+  }
+  
