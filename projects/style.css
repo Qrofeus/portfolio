@@ -89,8 +89,8 @@
     }
 
     & svg {
-        width: 20px;
-        height: 20px;
+        width: 1em;
+        height: 1em;
     }
 }
 
@@ -115,15 +115,15 @@
     }
 
     .projects-container h1 {
-        font-size: 2.5rem;
+        font-size: 2em;
     }
 
     .project-section {
-        padding-inline: 1.5em;
+        padding-inline: 1.25em;
     }
 
     .project-section h2 {
-        font-size: 1.8rem;
+        font-size: 1.5em;
     }
 
     .project-list {
@@ -136,7 +136,7 @@
     }
 
     .project-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.3em;
     }
 }
 

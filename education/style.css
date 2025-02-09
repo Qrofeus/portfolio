@@ -32,12 +32,12 @@
 }
 
 .education-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.8em;
     margin-bottom: 0.5em;
 }
 
 .education-card p {
-    font-size: 1rem;
+    font-size: 1em;
     line-height: 1.6;
     color: var(--secondary-text-color);
     margin: 0.5em 0;
@@ -62,7 +62,7 @@
 }
 
 .certification-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -87,11 +87,15 @@
     }
 
     .education-section {
-        padding-inline: 1.5em;
+        padding-inline: 1em;
     }
 
     .education-section h2 {
         font-size: 1.8rem;
+    }
+
+    .education-card {
+        font-size: 0.75rem;
     }
 
     .certification-card {

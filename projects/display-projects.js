@@ -60,13 +60,13 @@ function createProjectCard(project) {
     // Check if links exist, otherwise exclude the buttons
     const sourceLinkButton = project.sourceLink
         ? `<a href="${project.sourceLink}" target="_blank" aria-label="Source Code">
-                    <svg width="24" height="24" fill="currentColor">
+                    <svg width="1em" height="1em" fill="currentColor">
                         <use href="#icon-link"></use>
                     </svg>
                 </a>`: '';
     const liveDemoButton = project.liveLink
         ? `<a href="${project.liveLink}" target="_blank" aria-label="Live Demo">
-            <svg width="24" height="24" fill="currentColor">
+            <svg width="1em" height="1em" fill="currentColor">
                 <use href="#icon-open"></use>
             </svg>
         </a>`: '';

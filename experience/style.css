@@ -40,12 +40,12 @@
     font-size: 1rem;
     line-height: 1.6;
     color: var(--secondary-text-color);
-    margin: 0.5em 0;
   }
 
   .experience-details {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0.5em;
   }
   
   .responsibilities-list {
@@ -66,15 +66,23 @@
     }
   
     .experience-section {
-      padding-inline: 1.5em;
+      padding-inline: 1em;
     }
   
     .experience-section h2 {
       font-size: 1.8rem;
     }
+
+    .experience-entry {
+      padding: 1em 0;
+    }
   
     .experience-entry h3 {
       font-size: 1.5rem;
+    }
+
+    .experience-details {
+      flex-direction: column;
     }
   }
   
