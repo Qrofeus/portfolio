@@ -21,6 +21,13 @@ const projectsData = {
             description: "A simple digital clock web application that displays the current time dynamically updated using JavaScript.",
             sourceLink: "https://github.com/Qrofeus/digital-clock-webapp",
             liveLink: "https://qrofeus.github.io/digital-clock-webapp/"
+        },
+        {
+            title: "Portfolio website",
+            technologies: ["HTML", "CSS", "JavaScript"],
+            description: "[This website] Personal portfolio website showcasing my projects, skills, and experiences with a modern responsive design.",
+            sourceLink: "https://github.com/Qrofeus/portfolio",
+            liveLink: "https://qrofeus.dev/"
         }
     ],
     "Other Projects": [
@@ -36,6 +43,13 @@ const projectsData = {
             description: "Python implementations for widely known sorting algorithms. Complete with explanation and animations that help in understanding the sorting algorithms.",
             sourceLink: "https://github.com/Qrofeus/sorting-algorithms",
         },
+    ],
+    "Research Projects": [
+        {
+            title: "Cyberbullying Detection with Distributed Computing",
+            technologies: ["Python", "Random Forest", "CNN", "Logistic Regression", "Naive Bayes", "LSTM", "BERT", "Distributed Systems"],
+            description: "Developed a distributed system for cyberbullying detection across multilingual datasets. Trained and optimized multiple machine learning classifiers (Random Forest, CNN, and BERT) for four different languages, achieving close to 90% accuracy through advanced ensemble methods and optimization techniques."
+        },
     ]
 };
 
@@ -43,7 +57,13 @@ const projectsData = {
 function createProjectCard(project) {
     const techList = project.technologies.map(tech => `<li>${tech}</li>`).join('');
 
-    // Check if liveLink exists, otherwise exclude the button
+    // Check if links exist, otherwise exclude the buttons
+    const sourceLinkButton = project.sourceLink
+        ? `<a href="${project.sourceLink}" target="_blank" aria-label="Source Code">
+                    <svg width="24" height="24" fill="currentColor">
+                        <use href="#icon-link"></use>
+                    </svg>
+                </a>`: '';
     const liveDemoButton = project.liveLink
         ? `<a href="${project.liveLink}" target="_blank" aria-label="Live Demo">
             <svg width="24" height="24" fill="currentColor">
@@ -56,12 +76,8 @@ function createProjectCard(project) {
         <div class="project-title">
             <h3>${project.title}</h3>
             <div class="project-links">
-                <a href="${project.sourceLink}" target="_blank" aria-label="Source Code">
-                    <svg width="24" height="24" fill="currentColor">
-                        <use href="#icon-link"></use>
-                    </svg>
-                </a>
-                ${liveDemoButton} <!-- Conditionally rendered button -->
+                ${sourceLinkButton}
+                ${liveDemoButton}
             </div>
         </div>
         <hr>
