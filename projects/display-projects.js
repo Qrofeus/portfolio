@@ -30,29 +30,57 @@ const projectsData = {
             liveLink: "https://qrofeus.dev/"
         }
     ],
-    "Other Projects": [
+    "Misc": [
         {
             title: "Enigma Machine Simulation: Console",
             technologies: ["Python"],
             description: "A console based simulation of the widely known Enigma Machine, allowing you to encrypt and decrypt messages using methods similar to the ones used in war times.",
-            sourceLink: "https://github.com/Qrofeus/Enigma-Machine",
+            sourceLink: "https://github.com/Qrofeus/Enigma-Machine"
         },
         {
             title: "Sorting Algorithms - Visualization Tool",
             technologies: ["Python", "PyGame"],
             description: "Python implementations for widely known sorting algorithms. Complete with explanation and animations that help in understanding the sorting algorithms.",
-            sourceLink: "https://github.com/Qrofeus/sorting-algorithms",
-        },
+            sourceLink: "https://github.com/Qrofeus/sorting-algorithms"
+        }
     ],
-    "Research Projects": [
+    "Research Project": [
         {
             title: "Cyberbullying Detection with Distributed Computing",
             technologies: ["Python", "Random Forest", "CNN", "Logistic Regression", "Naive Bayes", "LSTM", "BERT", "Distributed Systems"],
             description: "Developed a distributed system for cyberbullying detection across multilingual datasets. Trained and optimized multiple machine learning classifiers (Random Forest, CNN, and BERT) for four different languages, achieving close to 90% accuracy through advanced ensemble methods and optimization techniques."
-        },
+        }
     ]
 };
 
+// Extract unique categories and technologies
+const categories = Object.keys(projectsData);
+const technologies = [...new Set(Object.values(projectsData).flat().flatMap(project => project.technologies))];
+
+let selectedCategory = null;
+let selectedTechnology = null;
+
+// Function to create filter lists
+function createFilterLists() {
+    const categoryContainer = document.getElementById("category-list");
+    const techContainer = document.getElementById("tech-list");
+    
+    categories.forEach(category => {
+        const li = document.createElement("li");
+        li.textContent = category;
+        li.addEventListener("click", () => toggleFilter("category", category, li));
+        categoryContainer.appendChild(li);
+    });
+    
+    technologies.forEach(tech => {
+        const li = document.createElement("li");
+        li.textContent = tech;
+        li.addEventListener("click", () => toggleFilter("technology", tech, li));
+        techContainer.appendChild(li);
+    });
+}
+
+// Function to create project cards
 // Function to create project card elements
 function createProjectCard(project) {
     const techList = project.technologies.map(tech => `<li>${tech}</li>`).join('');
@@ -88,23 +116,70 @@ function createProjectCard(project) {
     `;
 }
 
-// Function to display projects on the page
-function displayProjects() {
-    const container = document.querySelector(".projects-container");
+// Function to display projects based on filters
+function filterProjects() {
+    const projectsList = document.querySelector("#projects-list");
+    projectsList.innerHTML = "";
 
-    Object.keys(projectsData).forEach(section => {
-        const sectionHTML = `
-        <section class="project-section">
-          <h2>${section}</h2>
-          <div class="project-list">
-            ${projectsData[section].map(createProjectCard).join('')}
-          </div>
-        </section>
-      `;
+    let filteredProjects = [];
 
-        container.innerHTML += sectionHTML;
+    if (selectedCategory) {
+        filteredProjects = projectsData[selectedCategory] || [];
+    } else {
+        filteredProjects = Object.values(projectsData).flat();
+    }
+
+    if (selectedTechnology) {
+        filteredProjects = filteredProjects.filter(project => project.technologies.includes(selectedTechnology));
+    }
+
+    filteredProjects.forEach(project => {
+        projectsList.innerHTML += createProjectCard(project);
+    });
+
+    updateTechList(filteredProjects);
+}
+
+// Function to update the displayed technologies based on selected category
+function updateTechList(filteredProjects) {
+    const techContainer = document.getElementById("tech-list");
+    techContainer.innerHTML = "";
+
+    const usedTechnologies = [...new Set(filteredProjects.flatMap(project => project.technologies))];
+
+    usedTechnologies.forEach(tech => {
+        const li = document.createElement("li");
+        li.textContent = tech;
+        li.addEventListener("click", () => toggleFilter("technology", tech, li));
+        techContainer.appendChild(li);
     });
 }
 
-// Run the display function after DOM content is loaded
-document.addEventListener("DOMContentLoaded", displayProjects);
+// Function to toggle filters
+function toggleFilter(type, value, element) {
+    if (type === "category") {
+        selectedCategory = selectedCategory === value ? null : value;
+        selectedTechnology = null; // Reset technology filter when category changes
+    } else if (type === "technology") {
+        selectedTechnology = selectedTechnology === value ? null : value;
+    }
+
+    document.querySelectorAll("#category-list li, #tech-list li").forEach(li => li.classList.remove("active"));
+    if (selectedCategory) {
+        document.querySelectorAll("#category-list li").forEach(li => {
+            if (li.textContent === selectedCategory) li.classList.add("active");
+        });
+    }
+    if (selectedTechnology) {
+        document.querySelectorAll("#tech-list li").forEach(li => {
+            if (li.textContent === selectedTechnology) li.classList.add("active");
+        });
+    }
+    filterProjects();
+} 
+
+// Initial display of all projects
+document.addEventListener("DOMContentLoaded", () => {
+    createFilterLists();
+    filterProjects();
+});
