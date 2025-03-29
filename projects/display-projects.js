@@ -30,7 +30,7 @@ const projectsData = {
             liveLink: "https://qrofeus.dev/"
         }
     ],
-    "Misc": [
+    "Python": [
         {
             title: "Enigma Machine Simulation: Console",
             technologies: ["Python"],
@@ -42,15 +42,45 @@ const projectsData = {
             technologies: ["Python", "PyGame"],
             description: "Python implementations for widely known sorting algorithms. Complete with explanation and animations that help in understanding the sorting algorithms.",
             sourceLink: "https://github.com/Qrofeus/sorting-algorithms"
+        },
+        {
+            "title": "Path-Finding Algorithms",
+            "technologies": ["Python", "PyGame"],
+            "description": "Visualized A* pathfinding algorithm using Python and PyGame, for interactive and intuitive understanding of the algorithm.",
+            "sourceLink": "https://github.com/Qrofeus/path-finding-algorithms"
         }
     ],
     "Research Project": [
         {
             title: "Cyberbullying Detection with Distributed Computing",
-            technologies: ["Python", "Random Forest", "CNN", "Logistic Regression", "Naive Bayes", "LSTM", "BERT", "Distributed Systems"],
-            description: "Developed a distributed system for cyberbullying detection across multilingual datasets. Trained and optimized multiple machine learning classifiers (Random Forest, CNN, and BERT) for four different languages, achieving close to 90% accuracy through advanced ensemble methods and optimization techniques."
+            technologies: ["Python", "Random Forest, CNN", "Logistic Regression", "BERT", "Distributed Systems"],
+            description: "Developed a distributed system for cyberbullying detection across multilingual datasets. Trained and optimized multiple machine learning classifiers achieving close to 90% accuracy through advanced ensemble methods."
+        },
+        {
+            title: "Customer Relationship Management Web Application",
+            technologies: ["PHP", "MySQL", "Bootstrap", "AWS"],
+            description: "Engineered a modular CRM system hosted on company servers with real-time analytics and predictive modeling to enhance lead conversion. Implemented secure authentication with role-based access control.",
         }
-    ]
+    ],
+    "Software Engineering": [
+        {
+            title: "Chrome Extension Auto-fill",
+            technologies: ["JavaScript", "HTML", "CSS"],
+            description: "Developed a Chrome extension to autofill forms, reducing user data entry time by 75%. Implemented real-time field detection and customization features for enhanced usability.",
+        },
+        {
+            title: "Java Projects",
+            technologies: ["Java"],
+            description: "Built a collection of Java-based applications, including Fortune Cookie and Tic-Tac-Toe games, with Windows executable versions for instant play. Enhanced gameplay logic and UI responsiveness for an interactive user experience.",
+            sourceLink: "https://github.com/Qrofeus/Java-Projects"
+        },
+        {
+            title: "Music Player",
+            technologies: ["Kotlin"],
+            description: "Built an android music player application using Kotlin with an interactive UI",
+            sourceLink: "https://github.com/Qrofeus/Music_Player"
+        }
+    ],
 };
 
 // Extract unique categories and technologies
@@ -64,14 +94,14 @@ let selectedTechnology = null;
 function createFilterLists() {
     const categoryContainer = document.getElementById("category-list");
     const techContainer = document.getElementById("tech-list");
-    
+
     categories.forEach(category => {
         const li = document.createElement("li");
         li.textContent = category;
         li.addEventListener("click", () => toggleFilter("category", category, li));
         categoryContainer.appendChild(li);
     });
-    
+
     technologies.forEach(tech => {
         const li = document.createElement("li");
         li.textContent = tech;
@@ -81,24 +111,23 @@ function createFilterLists() {
 }
 
 // Function to create project cards
-// Function to create project card elements
 function createProjectCard(project) {
     const techList = project.technologies.map(tech => `<li>${tech}</li>`).join('');
 
     // Check if links exist, otherwise exclude the buttons
     const sourceLinkButton = project.sourceLink
-        ? `<a href="${project.sourceLink}" target="_blank" aria-label="Source Code">
+        ? `<a href="${project.sourceLink}" target="_blank" aria-label="Source Code" onclick="event.stopPropagation();">
                     <svg width="1em" height="1em" fill="currentColor">
                         <use href="#icon-link"></use>
                     </svg>
                 </a>`: '';
     const liveDemoButton = project.liveLink
-        ? `<a href="${project.liveLink}" target="_blank" aria-label="Live Demo">
+        ? `<a href="${project.liveLink}" target="_blank" aria-label="Live Demo" onclick="event.stopPropagation();">
             <svg width="1em" height="1em" fill="currentColor">
                 <use href="#icon-open"></use>
             </svg>
         </a>`: '';
-    
+
     return `
     <div class="project-card">
         <div class="project-title">
@@ -135,6 +164,22 @@ function filterProjects() {
 
     filteredProjects.forEach(project => {
         projectsList.innerHTML += createProjectCard(project);
+    });
+
+    // Add click event listeners to all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', function (event) {
+            // Toggle expanded class
+            this.classList.toggle('expanded');
+
+            // If a card is expanded, scroll it into view if needed
+            if (this.classList.contains('expanded')) {
+                const rect = this.getBoundingClientRect();
+                if (rect.bottom > window.innerHeight) {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
     });
 
     updateTechList(filteredProjects);
@@ -176,7 +221,7 @@ function toggleFilter(type, value, element) {
         });
     }
     filterProjects();
-} 
+}
 
 // Initial display of all projects
 document.addEventListener("DOMContentLoaded", () => {
