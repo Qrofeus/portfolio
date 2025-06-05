@@ -39,7 +39,6 @@
     border-radius: 5px;
     font-size: 1rem;
     text-align: center;
-    display: none;
 }
 
 .alert.success {
@@ -61,7 +60,7 @@
 }
 
 .hidden {
-    display: hidden;
+    display: none;
 }
 
 /* Form Styles */
