@@ -161,7 +161,7 @@ h1 {
         gap: 5px;
         padding: 0.5em;
         background-color: var(--primary-color);
-        color: var(--background-color);
+        color: var(--white);
         border-radius: 5px;
         text-decoration: none;
         transition: all 0.3s ease;
