@@ -92,7 +92,7 @@
     align-items: center;
     gap: 0.5em;
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--white);
     padding: 0.75em 1.5em;
     border: none;
     border-radius: 5px;

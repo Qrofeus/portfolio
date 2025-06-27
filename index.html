@@ -7,11 +7,12 @@
   <link rel="icon" type="image/svg+xml" href="assets/logo-monogram.svg" />
   <title>Ninad Deshpande</title>
 
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/home.css">
-  
+  <link rel="stylesheet" href="css/base-styles.css">
+  <link rel="stylesheet" href="css/homepage.css">
+
   <!-- JavaScript -->
-  <script defer src="scripts/script.js"></script>
+  <script defer src="scripts/ui-interactions.js"></script>
+  <script type="module" src="scripts/content-renderer.js"></script>
 </head>
 
 <body>
@@ -20,9 +21,7 @@
     <div class="logo"><a href="./">Ninad Deshpande</a></div>
     <ul class="nav-links">
       <li><a href="projects/">Projects</a></li>
-      <li><a href="experience/">Experience</a></li>
-      <li><a href="education/">Education</a></li>
-      <li><a href="contact/">Contact</a></li>
+      <li><a href="contact/">Contact Me</a></li>
       <li><a href="./assets/docs/Ninad Deshpande - Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
       <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
           <svg width="24" height="24" fill="none">
@@ -40,8 +39,8 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Hello, I'm Ninad Deshpande</h1>
-    <p>Software Developer & Machine Learning Enthusiast</p>
+    <h1>Ninad Deshpande</h1>
+    <p>Software Developer | Machine Learning Enthusiast | CS Grad</p>
 
     <!-- Social Icons -->
     <div class="socials">
@@ -63,6 +62,24 @@
     </div>
   </section>
 
+  <!-- About Section -->
+  <section class="about-section">
+    <h2>About Me</h2>
+    <p>Hi, I'm Ninad Deshpande! I recently completed my Master's in Computer & Information Science at Purdue University, where I discovered my love for turning complex problems into elegant solutions. From creating visual learning tools for algorithms to building Chrome extensions that simplify everyday tasks, I enjoy crafting software that makes people's lives easier. My recent work includes developing ML-powered cyberbullying detection systems and full-stack web applications, always with a focus on creating technology that's both intelligent and intuitive.
+    </p>
+  </section>
+
+  <section id="education" class="education"></section>
+
+  <section id="experience"></section>
+
+  <section class="cta-section">
+    <h2>What's Next?</h2>
+    <div class="cta-buttons">
+      <a href="projects/" class="cta-btn">Look at My Projects</a>
+      <a href="contact/" class="cta-btn">Get In Touch With Me</a>
+    </div>
+  </section>
 
   <!-- Hidden SVG Icons -->
   <svg aria-hidden="true" style="display: none;">
