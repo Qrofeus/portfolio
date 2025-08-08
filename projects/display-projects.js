@@ -1,87 +1,4 @@
-// Sample data for projects
-const projectsData = {
-    "Web Development": [
-        {
-            title: "Online Quiz",
-            technologies: ["OpenTDB API", "HTML", "CSS", "JavaScript"],
-            description: "A multiple choice trivia quiz of 10 questions fetched using the OpenTDB API.",
-            sourceLink: "https://github.com/Qrofeus/online-quiz",
-            liveLink: "https://quiz.qrofeus.dev/"
-        },
-        {
-            title: "Weather App",
-            technologies: ["OpenWeather API", "HTML", "CSS", "JavaScript"],
-            description: "A weather web application that fetches real-time weather data using the OpenWeather API.",
-            sourceLink: "https://github.com/Qrofeus/weather-web-application",
-            liveLink: "https://weather.qrofeus.dev/"
-        },
-        {
-            title: "Digital Clock",
-            technologies: ["HTML", "CSS", "JavaScript"],
-            description: "A simple digital clock web application that displays the current time dynamically updated using JavaScript.",
-            sourceLink: "https://github.com/Qrofeus/digital-clock-webapp",
-            liveLink: "https://qrofeus.github.io/digital-clock-webapp/"
-        },
-        {
-            title: "Portfolio website",
-            technologies: ["HTML", "CSS", "JavaScript"],
-            description: "[This website] Personal portfolio website showcasing my projects, skills, and experiences with a modern responsive design.",
-            sourceLink: "https://github.com/Qrofeus/portfolio",
-            liveLink: "https://qrofeus.dev/"
-        }
-    ],
-    "Python": [
-        {
-            title: "Enigma Machine Simulation: Console",
-            technologies: ["Python"],
-            description: "A console based simulation of the widely known Enigma Machine, allowing you to encrypt and decrypt messages using methods similar to the ones used in war times.",
-            sourceLink: "https://github.com/Qrofeus/Enigma-Machine"
-        },
-        {
-            title: "Sorting Algorithms - Visualization Tool",
-            technologies: ["Python", "PyGame"],
-            description: "Python implementations for widely known sorting algorithms. Complete with explanation and animations that help in understanding the sorting algorithms.",
-            sourceLink: "https://github.com/Qrofeus/sorting-algorithms"
-        },
-        {
-            "title": "Path-Finding Algorithms",
-            "technologies": ["Python", "PyGame"],
-            "description": "Visualized A* pathfinding algorithm using Python and PyGame, for interactive and intuitive understanding of the algorithm.",
-            "sourceLink": "https://github.com/Qrofeus/path-finding-algorithms"
-        }
-    ],
-    "Research Project": [
-        {
-            title: "Cyberbullying Detection with Distributed Computing",
-            technologies: ["Python", "Random Forest, CNN", "Logistic Regression", "BERT", "Distributed Systems"],
-            description: "Developed a distributed system for cyberbullying detection across multilingual datasets. Trained and optimized multiple machine learning classifiers achieving close to 90% accuracy through advanced ensemble methods."
-        },
-        {
-            title: "Customer Relationship Management Web Application",
-            technologies: ["PHP", "MySQL", "Bootstrap", "AWS"],
-            description: "Engineered a modular CRM system hosted on company servers with real-time analytics and predictive modeling to enhance lead conversion. Implemented secure authentication with role-based access control.",
-        }
-    ],
-    "Software Engineering": [
-        {
-            title: "Chrome Extension Auto-fill",
-            technologies: ["JavaScript", "HTML", "CSS"],
-            description: "Developed a Chrome extension to autofill forms, reducing user data entry time by 75%. Implemented real-time field detection and customization features for enhanced usability.",
-        },
-        {
-            title: "Java Projects",
-            technologies: ["Java"],
-            description: "Built a collection of Java-based applications, including Fortune Cookie and Tic-Tac-Toe games, with Windows executable versions for instant play. Enhanced gameplay logic and UI responsiveness for an interactive user experience.",
-            sourceLink: "https://github.com/Qrofeus/Java-Projects"
-        },
-        {
-            title: "Music Player",
-            technologies: ["Kotlin"],
-            description: "Built an android music player application using Kotlin with an interactive UI",
-            sourceLink: "https://github.com/Qrofeus/Music_Player"
-        }
-    ],
-};
+import projectsData from '../scripts/data/projects-data.js';
 
 // Extract unique categories and technologies
 const categories = Object.keys(projectsData);
@@ -89,6 +6,14 @@ const technologies = [...new Set(Object.values(projectsData).flat().flatMap(proj
 
 let selectedCategory = null;
 let selectedTechnology = null;
+
+// Modal elements
+const modal = document.getElementById('project-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalTechnologies = document.getElementById('modal-technologies');
+const modalDescription = document.getElementById('modal-description');
+const modalLinks = document.getElementById('modal-links');
+const modalCloseBtn = document.getElementById('modal-close');
 
 // Function to create filter lists
 function createFilterLists() {
@@ -129,7 +54,7 @@ function createProjectCard(project) {
         </a>`: '';
 
     return `
-    <div class="project-card">
+    <div class="project-card" data-project='${JSON.stringify(project).replace(/'/g, "&apos;")}'>
         <div class="project-title">
             <h3>${project.title}</h3>
             <div class="project-links">
@@ -143,6 +68,71 @@ function createProjectCard(project) {
         <p>${project.description}</p>       
     </div>
     `;
+}
+
+// Function to open modal with project details
+function openModal(project) {
+    // Set modal content
+    modalTitle.textContent = project.title;
+    
+    // Clear and populate technologies
+    modalTechnologies.innerHTML = '';
+    project.technologies.forEach(tech => {
+        const techChip = document.createElement('span');
+        techChip.className = 'tech-chip';
+        techChip.textContent = tech;
+        modalTechnologies.appendChild(techChip);
+    });
+    
+    // Set description with proper paragraph formatting
+    const detailedDesc = project.detailedDescription || project.description;
+    const paragraphs = detailedDesc.split('\n\n').filter(p => p.trim());
+    modalDescription.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
+    
+    // Clear and populate links
+    modalLinks.innerHTML = '';
+    if (project.sourceLink) {
+        const sourceBtn = document.createElement('a');
+        sourceBtn.href = project.sourceLink;
+        sourceBtn.target = '_blank';
+        sourceBtn.rel = 'noopener noreferrer';
+        sourceBtn.innerHTML = `
+            <svg width="1em" height="1em" fill="currentColor">
+                <use href="#icon-link"></use>
+            </svg>
+            View Source Code
+        `;
+        modalLinks.appendChild(sourceBtn);
+    }
+    
+    if (project.liveLink) {
+        const liveBtn = document.createElement('a');
+        liveBtn.href = project.liveLink;
+        liveBtn.target = '_blank';
+        liveBtn.rel = 'noopener noreferrer';
+        liveBtn.innerHTML = `
+            <svg width="1em" height="1em" fill="currentColor">
+                <use href="#icon-open"></use>
+            </svg>
+            Live Demo
+        `;
+        modalLinks.appendChild(liveBtn);
+    }
+    
+    // Show modal
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    
+    // Focus trap - focus the close button
+    modalCloseBtn.focus();
+}
+
+// Function to close modal
+function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
 }
 
 // Function to display projects based on filters
@@ -169,16 +159,14 @@ function filterProjects() {
     // Add click event listeners to all project cards
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', function (event) {
-            // Toggle expanded class
-            this.classList.toggle('expanded');
-
-            // If a card is expanded, scroll it into view if needed
-            if (this.classList.contains('expanded')) {
-                const rect = this.getBoundingClientRect();
-                if (rect.bottom > window.innerHeight) {
-                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+            // Don't open modal if clicking on project links
+            if (event.target.closest('.project-links a')) {
+                return;
             }
+            
+            // Get project data from the card
+            const projectData = JSON.parse(this.getAttribute('data-project').replace(/&apos;/g, "'"));
+            openModal(projectData);
         });
     });
 
@@ -223,8 +211,34 @@ function toggleFilter(type, value, element) {
     filterProjects();
 }
 
+// Modal event listeners
+function setupModalEventListeners() {
+    // Close modal when clicking close button
+    modalCloseBtn.addEventListener('click', closeModal);
+    
+    // Close modal when clicking backdrop
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    // Prevent modal content clicks from closing modal
+    document.querySelector('.modal-content').addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+}
+
 // Initial display of all projects
 document.addEventListener("DOMContentLoaded", () => {
     createFilterLists();
     filterProjects();
+    setupModalEventListeners();
 });

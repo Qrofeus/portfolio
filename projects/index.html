@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <!-- JavaScript -->
   <script defer src="../scripts/ui-interactions.js"></script>
-  <script defer src="display-projects.js"></script>
+  <script defer type="module" src="display-projects.js"></script>
 </head>
 
 <body>
@@ -53,6 +53,26 @@
       <!-- Dynamic content will be injected here by JavaScript -->
     </div>
   </main>
+
+  <!-- Modal Overlay -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-project-title"></h2>
+        <button id="modal-close" class="modal-close-btn" aria-label="Close modal">
+          <svg width="24" height="24" fill="none">
+            <use href="#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-tech-list" id="modal-technologies"></div>
+        <div class="modal-description" id="modal-description"></div>
+        <div class="modal-links" id="modal-links"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Hidden SVG Icons -->
   <svg aria-hidden="true" style="display: none;">
