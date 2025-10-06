@@ -1,5 +1,8 @@
 /* Projects Page Styles */
 .projects-container {
+    flex: 1;
+    width: 100%;
+
     max-width: 75em;
     padding: 5em;
     margin: 0 auto;
