@@ -38,29 +38,11 @@ function createFilterLists() {
 // Function to create project cards
 function createProjectCard(project) {
     const techList = project.technologies.map(tech => `<li>${tech}</li>`).join('');
-
-    // Check if links exist, otherwise exclude the buttons
-    const sourceLinkButton = project.sourceLink
-        ? `<a href="${project.sourceLink}" target="_blank" aria-label="Source Code" onclick="event.stopPropagation();">
-                    <svg width="1em" height="1em" fill="currentColor">
-                        <use href="#icon-link"></use>
-                    </svg>
-                </a>`: '';
-    const liveDemoButton = project.liveLink
-        ? `<a href="${project.liveLink}" target="_blank" aria-label="Live Demo" onclick="event.stopPropagation();">
-            <svg width="1em" height="1em" fill="currentColor">
-                <use href="#icon-open"></use>
-            </svg>
-        </a>`: '';
-
+    
     return `
     <div class="project-card" data-project='${JSON.stringify(project).replace(/'/g, "&apos;")}'>
         <div class="project-title">
             <h3>${project.title}</h3>
-            <div class="project-links">
-                ${sourceLinkButton}
-                ${liveDemoButton}
-            </div>
         </div>
         <hr>
         <ul class="tech-list">${techList}</ul>
@@ -100,7 +82,7 @@ function openModal(project) {
             <svg width="1em" height="1em" fill="currentColor">
                 <use href="#icon-link"></use>
             </svg>
-            View Source Code
+            Source Code
         `;
         modalLinks.appendChild(sourceBtn);
     }

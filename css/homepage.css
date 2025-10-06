@@ -116,12 +116,6 @@ section h2 {
   }
 }
 
-@media (max-width: 899px) {
-  .about-section p {
-    max-width: 900px;
-  }
-}
-
 /* Shared Card Entry */
 .education-card,
 .experience-card {
@@ -385,7 +379,7 @@ section h2 {
 @media (max-width: 480px) {
   .education-card,
   .experience-card {
-    padding: 1.25em;
+    padding: 1em;
   }
 
   .education-card h3,
@@ -592,7 +586,7 @@ section h2 {
   }
 
   section {
-    padding-inline: 10%;
+    padding-inline: 5%;
     max-width: 100%;
   }
 
@@ -602,7 +596,11 @@ section h2 {
 
   .about-section p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
+
+    &:first-of-type {
+      font-size: 1.1rem;
+    }
   }
 
   .certification-card {
