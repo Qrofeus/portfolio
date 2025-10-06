@@ -39,20 +39,24 @@ body.light-theme {
 
 body,
 html {
-  min-height: 100vh;
+  min-height: 100svh;
   font-family: 'Arial', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-body{
-  margin-top: 50px; /* Space for fixed navbar */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: hidden;
 }
 
 /* Navigation Bar */
 .navbar {
+  flex-shrink: 0;
   min-height: 50px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   display: flex;
