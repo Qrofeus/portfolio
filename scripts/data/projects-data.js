@@ -1,6 +1,14 @@
 const projectsData = {
     "Web Development": [
         {
+            title: "NearZero: Task Manager",
+            technologies: ["React", "Vite", "dayjs", "Open Props", "localStorage", "Vitest"],
+            description: "Privacy-first task manager with visual deadline urgency tracking, color gradients, and dynamic animations.",
+            detailedDescription: "A minimalist, browser-based task management application that brings deadlines to life through visual urgency indicators. Tasks dynamically change appearance as deadlines approach—transitioning through color gradients (green→yellow→orange→red), adding pulse animations for near-deadline tasks, and shake/blink effects for overdue items.\n\nArchitected as a 100% client-side application with zero backend dependencies, ensuring complete privacy. All data persists exclusively in browser localStorage with no accounts, logins, or external servers. Features comprehensive task management with titles, descriptions,deadlines, and three-tier priority system (High/Medium/Low). Advanced sorting algorithms support both deadline-first and priority-grouped ordering with stable insertion positions.\n\nImplements responsive multi-column layout with user-configurable density controls (compact/comfortable/spacious), theme system (light/dark/system), and auto-refresh intervals that accelerate when tasks become urgent. Includes demo mode for feature exploration, JSON import/export for data portability, version migration system, and comprehensive toast/modal notification system. Built with test-first development methodology ensuring robust unit test coverage across all utility functions and components.",
+            sourceLink: "https://github.com/Qrofeus/near-zero",
+            liveLink: "https://nearzero.qrofeus.dev/"
+        },
+        {
             title: "Online Quiz - Web Application",
             technologies: ["OpenTDB API", "HTML", "CSS", "JavaScript"],
             description: "Interactive trivia quiz game with 20 questions across multiple categories and difficulty levels.",
@@ -31,7 +39,7 @@ const projectsData = {
             detailedDescription: "A comprehensive personal portfolio website designed to showcase technical projects, professional skills, and career experiences through a modern, responsive interface. The site features dynamic content filtering, smooth animations, and intuitive navigation to create an engaging user experience.\n\nTechnical implementations include advanced CSS Grid and Flexbox layouts for responsive design, JavaScript-powered filtering systems for project categorization. The site incorporates modern web design principles including mobile-first approach, accessibility features, and cross-browser compatibility.",
             sourceLink: "https://github.com/Qrofeus/portfolio",
             liveLink: "https://qrofeus.dev/"
-        }
+        },
     ],
     "Python": [
         {
