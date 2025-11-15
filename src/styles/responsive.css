@@ -1,0 +1,90 @@
+/* Global responsive utilities using Open Props custom media queries */
+
+/* Container utility */
+.container {
+  max-width: var(--size-content-3);  /* ~60ch or 1200px equivalent */
+  margin: 0 auto;
+  padding: 0 var(--size-4);          /* 1rem */
+}
+
+@media (--md-n-above) {
+  .container {
+    padding: 0 var(--size-6);        /* 2rem */
+  }
+}
+
+/* Visibility utilities */
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (--md-n-above) {
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Flexbox utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Grid utilities */
+.grid {
+  display: grid;
+  gap: var(--size-4);
+}
+
+@media (--md-n-above) {
+  .grid {
+    gap: var(--size-6);
+  }
+}
+
+/* Spacing utilities */
+.section {
+  padding: var(--size-8) 0;
+}
+
+@media (--md-n-above) {
+  .section {
+    padding: var(--size-10) 0;
+  }
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

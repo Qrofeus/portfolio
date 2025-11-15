@@ -1,0 +1,6 @@
+/* Import OpenProps library */
+@import "open-props/style";
+@import "open-props/normalize";
+
+/* Import Open Props custom media queries for responsive design */
+@import "open-props/media";

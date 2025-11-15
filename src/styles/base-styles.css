@@ -1,0 +1,55 @@
+/* CSS Custom Properties for theming using Open Props */
+
+:root {
+  /* Light theme colors - using Open Props colors */
+  --color-background: var(--gray-0);  /* #f8f9fa - clean white background */
+  --color-surface: var(--gray-2);     /* #f1f3f5 - slightly darker surface */
+  --color-text: var(--gray-9);        /* #212529 - dark text */
+  --color-text-secondary: var(--gray-7); /* #495057 - secondary text */
+  --color-primary: var(--purple-6);    /* #be4bdb - matches hsl(284, 66%, 45%) */
+  --color-primary-hover: var(--purple-7); /* Darker on hover */
+  --color-border: var(--gray-3);      /* #dee2e6 - subtle borders */
+  --color-shadow: hsl(0 0% 0% / 0.1); /* Subtle shadows */
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors - using Open Props colors */
+  --color-background: var(--gray-9);  /* #212529 - dark background */
+  --color-surface: var(--gray-7);     /* #343a40 - slightly lighter surface */
+  --color-text: var(--gray-0);        /* #f8f9fa - light text */
+  --color-text-secondary: var(--gray-3); /* #dee2e6 - secondary text */
+  --color-primary: var(--purple-5);    /* #cc5de8 - lighter purple for contrast */
+  --color-primary-hover: var(--purple-4); /* Lighter on hover */
+  --color-border: var(--gray-7);      /* #495057 - borders */
+  --color-shadow: hsl(0 0% 0% / 0.3); /* Stronger shadows in dark mode */
+}
+
+/* Apply theme colors to body */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);      /* Open Props font stack */
+  transition: background-color var(--ease-3) 0.3s, color var(--ease-3) 0.3s;
+}
+
+/* Link styles */
+a {
+  color: var(--color-primary);
+  transition: color var(--ease-2) 0.2s;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--gray-0);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

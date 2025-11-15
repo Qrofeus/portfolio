@@ -1,0 +1,39 @@
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--size-2);
+  font-size: var(--font-size-4);
+  color: var(--color-text);
+  border-radius: var(--radius-2);
+  transition: transform var(--ease-3) 0.3s, background-color var(--ease-2) 0.2s;
+}
+
+/* Show only on mobile */
+@media (--md-n-above) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.hamburger:hover {
+  background-color: var(--color-surface);
+}
+
+.hamburger:focus-visible {
+  outline: var(--border-size-2) solid var(--color-primary);
+  outline-offset: var(--size-1);
+}
+
+.hamburger.open {
+  transform: rotate(90deg);
+}
+
+@media (--motionNotOK) {
+  .hamburger {
+    transition: none;
+  }
+}

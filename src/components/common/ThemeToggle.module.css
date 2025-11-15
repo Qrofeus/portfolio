@@ -1,0 +1,60 @@
+.toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--size-2);
+  display: inline-flex;
+  align-items: center;
+}
+
+.track {
+  position: relative;
+  display: inline-block;
+  width: var(--size-8);
+  height: var(--size-5);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-round);
+  transition: background-color var(--ease-3) 0.3s;
+  border: var(--border-size-2) solid var(--color-border);
+}
+
+.toggle:hover .track {
+  background-color: var(--color-text-secondary);
+}
+
+.toggle:focus-visible {
+  outline: var(--border-size-2) solid var(--color-primary);
+  outline-offset: var(--size-1);
+  border-radius: var(--radius-round);
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  width: var(--size-3);
+  height: var(--size-3);
+  background-color: var(--gray-0);
+  border-radius: var(--radius-round);
+  transition: left var(--ease-3) 0.3s, background-color var(--ease-3) 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-0);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-2);
+}
+
+.thumb.dark {
+  left: calc(100% - var(--size-3) - 2px);
+  background-color: var(--gray-9);
+  color: var(--color-primary);
+}
+
+@media (--motionNotOK) {
+  .track,
+  .thumb {
+    transition: none;
+  }
+}
