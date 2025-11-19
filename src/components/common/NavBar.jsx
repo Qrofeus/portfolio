@@ -39,19 +39,19 @@ function NavBar() {
           <div className={styles.navLinks}>
             <Link
               to="/projects"
-              className={location.pathname === '/projects' ? styles.active : ''}
+              className={`button ${location.pathname === '/projects' ? styles.active : ''}`}
             >
               Projects
             </Link>
             <Link
               to="/about"
-              className={location.pathname === '/about' ? styles.active : ''}
+              className={`button ${location.pathname === '/about' ? styles.active : ''}`}
             >
               About Me
             </Link>
             <Link
               to="/contact"
-              className={location.pathname === '/contact' ? styles.active : ''}
+              className={`button ${location.pathname === '/contact' ? styles.active : ''}`}
             >
               Contact
             </Link>
@@ -77,21 +77,21 @@ function NavBar() {
             <nav className={styles.mobileNavLinks}>
               <Link
                 to="/projects"
-                className={location.pathname === '/projects' ? styles.active : ''}
+                className={`button ${location.pathname === '/projects' ? styles.active : ''}`}
                 onClick={closeMenu}
               >
                 Projects
               </Link>
               <Link
                 to="/about"
-                className={location.pathname === '/about' ? styles.active : ''}
+                className={`button ${location.pathname === '/about' ? styles.active : ''}`}
                 onClick={closeMenu}
               >
                 About Me
               </Link>
               <Link
                 to="/contact"
-                className={location.pathname === '/contact' ? styles.active : ''}
+                className={`button ${location.pathname === '/contact' ? styles.active : ''}`}
                 onClick={closeMenu}
               >
                 Contact

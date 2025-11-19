@@ -3,29 +3,34 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--size-2) var(--size-4);
-  background-color: var(--color-background);
-  /*border-bottom: var(--border-size-1) solid var(--color-border);*/
-  position: sticky;
+  background-color: transparent;
+  /*background-color: var(--color-background);*/
+  position: fixed;
+    width: 100%;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(var(--size-2));
-  transition: box-shadow var(--ease-3) 0.3s;
+  transition: background-color 300ms, box-shadow 300ms;
+    color: hsl(var(--gray-0-hsl));
 }
 
 .navbar.scrolled {
+    background-color: var(--color-background);
   box-shadow: var(--shadow-2);
+    color: var(--color-text);
 }
 
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+    color: inherit;
 }
 
 .logo h3 {
   margin: 0;
   font-weight: var(--font-weight-6);
-  color: var(--color-text);
+  color: inherit;
   transition: color var(--ease-2) 0.2s;
 }
 
@@ -57,7 +62,7 @@
 .navLinks a {
   padding: var(--size-1) var(--size-2);
   text-decoration: none;
-  color: var(--color-text);
+  color: inherit;
   border-radius: var(--radius-2);
   font-weight: var(--font-weight-5);
   transition: background-color var(--ease-2) 0.2s, color var(--ease-2) 0.2s;
@@ -130,6 +135,7 @@
 }
 
 .drawerHeader h3 {
+    color: inherit;
   margin-bottom: 0;
 }
 

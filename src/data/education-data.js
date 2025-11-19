@@ -31,4 +31,11 @@ export const certificationData = [
         date: "October 2025",
         certificateLink: "https://coursera.org/verify/specialization/AV66XRBQWN1J"
     },
+    {
+        title: "Master of Science",
+        issuer: "Purdue University",
+        date: "May 2025",
+        certificateLink: "https://cecredential.iu.edu/validation/",
+        cedid: "25BI-BLW5-NJEM"
+    }
 ];

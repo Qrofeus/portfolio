@@ -35,7 +35,7 @@
   transform: translateY(-50%);
   width: var(--size-3);
   height: var(--size-3);
-  background-color: var(--gray-0);
+  background-color: hsl(var(--gray-0-hsl));
   border-radius: var(--radius-round);
   transition: left var(--ease-3) 0.3s, background-color var(--ease-3) 0.3s;
   display: flex;
@@ -48,7 +48,7 @@
 
 .thumb.dark {
   left: calc(100% - var(--size-3) - 2px);
-  background-color: var(--gray-9);
+  background-color: hsl(var(--gray-9-hsl));
   color: var(--color-primary);
 }
 

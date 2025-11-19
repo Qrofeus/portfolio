@@ -1,6 +1,10 @@
-/* Import OpenProps library */
-@import "open-props/style";
-@import "open-props/normalize";
+/* Import opui-css theme-one (includes Open Props, normalize, and components) */
+@import "opui-css/dist/theme-one.css";
 
-/* Import Open Props custom media queries for responsive design */
-@import "open-props/media";
+/* Import color scales */
+@import "opbeta/css/color/gray.hsl.css";
+@import "opbeta/css/color/purple.hsl.css";
+@import "opbeta/css/color/violet.hsl.css";
+@import "opbeta/css/color/indigo.hsl.css";
+@import "opbeta/css/color/blue.hsl.css";
+@import "opbeta/css/color/cyan.hsl.css";

@@ -5,6 +5,10 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+/* Remove padding from most elements, but not buttons/links with .button class */
+:where(*:not(.button)) {
   padding: 0;
 }
 
@@ -51,7 +55,7 @@ ol {
 }
 
 a {
-  text-decoration: none;
+  /*text-decoration: none;*/
   color: inherit;
 }
 

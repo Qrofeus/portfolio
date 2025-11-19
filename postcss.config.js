@@ -5,7 +5,7 @@ export default {
   plugins: [
     postcssGlobalData({
       files: [
-        './node_modules/open-props/media.min.css'
+        './node_modules/opui-css/dist/theme-one.css'
       ]
     }),
     postcssCustomMedia(),

@@ -1,0 +1,122 @@
+.highlightsSection {
+    padding: var(--size-10) var(--size-4);
+    max-width: calc(var(--size-fluid-10) * 2.5);
+    width: 100%;
+    margin-inline: auto;
+    box-sizing: border-box;
+    color: var(--color-primary);
+}
+
+.header h2 {
+    text-align: center;
+    font-weight: var(--font-weight-7);
+    margin-bottom: var(--size-8);
+    margin-inline: auto;
+}
+
+.title {
+    font-size: var(--font-size-5);
+    font-weight: 600;
+    margin: 0 0 var(--size-3);
+    color: var(--color-text);
+}
+
+/* Mobile: Horizontal scroll */
+.highlights {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--size-4);
+    padding: var(--size-3) 0;
+    margin-bottom: var(--size-3);
+
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--gray-5-hsl)) transparent;
+}
+
+.highlights::-webkit-scrollbar {
+    height: 8px;
+}
+
+.highlights::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.highlights::-webkit-scrollbar-thumb {
+    background: hsl(var(--gray-5-hsl));
+    border-radius: var(--radius-round);
+}
+
+.highlights::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--gray-6-hsl));
+}
+
+.highlights > * {
+    flex: 0 0 90%;
+    scroll-snap-align: center;
+}
+
+.seeAllLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-2);
+    text-align: center;
+    font-size: var(--font-size-2);
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-top: var(--size-6);
+    transition: opacity var(--ease-3) 0.2s;
+}
+
+.seeAllLink:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* Tablet: 2-column grid layout */
+@media (--md-n-above) {
+    .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--size-6);
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding: 0;
+        margin-bottom: var(--size-6);
+    }
+
+    .highlights > * {
+        flex: initial;
+        scroll-snap-align: initial;
+    }
+
+    .title {
+        font-size: var(--font-size-6);
+    }
+
+    .subtitle {
+        font-size: var(--font-size-3);
+    }
+}
+
+/* Desktop: 3-column grid layout */
+@media (--lg-n-above) {
+    .highlights {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--size-7);
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (--motionNotOK) {
+    .highlights {
+        scroll-behavior: auto;
+    }
+}

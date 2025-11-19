@@ -1,10 +1,10 @@
 /* Global CSS imports - import order matters! */
 
-/* 1. Import OpenProps first (provides design tokens) */
-@import './styles/open-props.css';
-
-/* 2. Reset default styles */
+/* 1. Reset default styles */
 @import './styles/reset.css';
+
+/* 2. Import OpenProps (provides design tokens and components) */
+@import './styles/open-props.css';
 
 /* 3. Base theme variables and colors */
 @import './styles/base-styles.css';
