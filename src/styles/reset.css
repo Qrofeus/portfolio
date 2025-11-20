@@ -59,8 +59,12 @@ a {
   color: inherit;
 }
 
-button {
+button:not(.button) {
   border: none;
   background: none;
+  cursor: pointer;
+}
+
+button.button {
   cursor: pointer;
 }

@@ -46,8 +46,12 @@
 body {
     background-color: var(--color-background);
     color: var(--color-text);
-    font-family: var(--font-sans); /* Open Props font stack */
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif; /* Open Props font stack */
     transition: background-color var(--ease-3) 0.3s, color var(--ease-3) 0.3s;
+}
+
+h1 {
+    color: var(--color-text);
 }
 
 /* Selection styles */

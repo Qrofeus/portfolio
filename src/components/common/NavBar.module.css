@@ -4,20 +4,23 @@
   align-items: center;
   padding: var(--size-2) var(--size-4);
   background-color: transparent;
-  /*background-color: var(--color-background);*/
   position: fixed;
-    width: 100%;
+  width: 100%;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(var(--size-2));
-  transition: background-color 300ms, box-shadow 300ms;
-    color: hsl(var(--gray-0-hsl));
+  transition: background-color 300ms, box-shadow 300ms, color 300ms;
+  color: var(--color-text);
+}
+
+.navbar.homepage {
+  color: hsl(var(--gray-0-hsl));
 }
 
 .navbar.scrolled {
-    background-color: var(--color-background);
+  background-color: var(--color-background);
   box-shadow: var(--shadow-2);
-    color: var(--color-text);
+  color: var(--color-text);
 }
 
 .logo {

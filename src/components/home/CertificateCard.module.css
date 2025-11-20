@@ -55,7 +55,7 @@
 
 .cedid {
     font-size: var(--font-size-0);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), Arial, Helvetica, sans-serif;
     color: var(--color-text-secondary);
     margin: 0;
     line-height: 1.4;

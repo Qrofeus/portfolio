@@ -28,9 +28,11 @@ function NavBar() {
     e.stopPropagation();
   };
 
+  const isHomepage = location.pathname === '/';
+
   return (
     <>
-      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isHomepage && !isScrolled ? styles.homepage : ''}`}>
         <Link to="/" className={styles.logo}>
           <h3>Ninad Deshpande</h3>
         </Link>

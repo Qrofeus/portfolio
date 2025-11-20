@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 100vh;
+  min-height: 80vh;
     color: hsl(var(--gray-2-hsl));
   padding: var(--size-8) var(--size-4);
   gap: var(--size-3);
@@ -97,7 +97,7 @@
 /* Gradient animation */
 @keyframes gradient {
   0% {
-    background-position: 0%;
+    background-position: 0;
   }
   100% {
     background-position: 100%;

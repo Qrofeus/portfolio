@@ -2,7 +2,7 @@
 
 /* Container utility */
 .container {
-  max-width: var(--size-content-3);  /* ~60ch or 1200px equivalent */
+  max-width: calc(var(--size-fluid-10) * 2);  /* ~120ch or 2400px equivalent */
   margin: 0 auto;
   padding: 0 var(--size-4);          /* 1rem */
 }
@@ -67,13 +67,17 @@
 
 /* Spacing utilities */
 .section {
-  padding: var(--size-8) 0;
+  padding-top: var(--size-10);
 }
 
-@media (--md-n-above) {
-  .section {
-    padding: var(--size-10) 0;
-  }
+:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border: none;
+
+    & button {
+        cursor: not-allowed;
+    }
 }
 
 /* Screen reader only utility */
