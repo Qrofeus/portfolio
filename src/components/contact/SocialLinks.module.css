@@ -1,0 +1,36 @@
+.socialLinks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-5);
+
+    color: hsl(var(--gray-0-hsl));
+}
+
+.socialLinks h2 {
+    font-size: var(--font-size-4);
+    margin: 0;
+    color: var(--color-text);
+}
+
+.linksContainer {
+    display: flex;
+    justify-content: space-around;
+
+    & > * {
+        font-size: var(--font-size-6);
+        color: var(--color-text);
+        padding: 0;
+
+        &:hover {
+            color: var(--color-primary);
+            background-color: transparent;
+        }
+    }
+}
+
+@media (--md-n-above) {
+    .linksContainer {
+        justify-content: flex-start;
+        gap: var(--size-4);
+    }
+}

@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--size-4);
+}
+
+.empty {
+  text-align: center;
+  padding: var(--size-8);
+  color: var(--color-text-secondary);
+}
+
+@media (--md-n-above) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--size-5);
+  }
+}
+
+@media (--lg-n-above) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--size-6);
+  }
+}

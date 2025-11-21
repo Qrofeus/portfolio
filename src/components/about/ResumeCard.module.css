@@ -1,0 +1,89 @@
+.resumeCard {
+    padding: var(--size-5);
+    border: 1px solid hsl(var(--gray-5-hsl));
+    border-radius: var(--radius-2);
+    margin: var(--size-8) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-2);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-3);
+    text-align: center;
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    color: var(--color-primary);
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    /*gap: var(--size-1);*/
+}
+
+.title {
+    font-size: var(--font-size-3);
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
+}
+
+.subtitle {
+    font-size: var(--font-size-1);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    gap: var(--size-4);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttons a {
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+}
+
+@media (--md-n-above) {
+    .resumeCard {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--size-5) var(--size-6);
+    }
+
+    .content {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--size-4);
+    }
+
+    .textContent {
+        align-items: flex-start;
+    }
+
+    .title {
+        font-size: var(--font-size-4);
+    }
+
+    .subtitle {
+        font-size: var(--font-size-1);
+    }
+
+    .buttons {
+        flex-wrap: nowrap;
+    }
+}
