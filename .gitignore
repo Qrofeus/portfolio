@@ -14,7 +14,6 @@ dist-ssr
 
 # Editor directories and files
 .vscode/
-.claude
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -23,10 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Project documentation
-CLAUDE.md
-REACT_MIGRATION.md
 
 # Environment variables
 .env
