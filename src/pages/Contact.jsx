@@ -12,7 +12,7 @@ function Contact() {
                 </p>
             </div>
 
-            <div className={styles.contactCard}>
+            <div className={`container ${styles.contactCard}`}>
                 <div className={styles.contactContainer}>
                     <div className={styles.formSection}>
                         <h2>Contact Form</h2>
