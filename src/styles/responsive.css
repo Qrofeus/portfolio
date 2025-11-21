@@ -2,7 +2,7 @@
 
 /* Container utility */
 .container {
-  max-width: calc(var(--size-fluid-10) * 2);  /* ~120ch or 2400px equivalent */
+  max-width: min(90%, calc(var(--size-fluid-10) * 2));  /* ~120ch or 2400px equivalent */
   margin: 0 auto;
   padding: 0 var(--size-4);          /* 1rem */
 }

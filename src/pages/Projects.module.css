@@ -1,0 +1,26 @@
+.projects {
+  min-height: 100vh;
+}
+
+.heading {
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-7);
+  color: var(--color-text);
+  margin: 0 0 var(--size-2);
+}
+
+.subtitle {
+  font-size: var(--font-size-2);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--size-6);
+}
+
+@media (--md-n-above) {
+  .heading {
+    font-size: var(--font-size-7);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-3);
+  }
+}

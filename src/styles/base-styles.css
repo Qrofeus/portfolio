@@ -91,3 +91,34 @@ h1 {
         color: hsl(var(--gray-2-hsl));
     }
 }
+
+/* Scrollbar styling - transparent background, applied globally */
+/* Override opui-css scrollbar-width: thin with color */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+}
+
+* {
+    scrollbar-color: var(--color-border) transparent;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+}
