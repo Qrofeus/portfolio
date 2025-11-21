@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {Toaster} from 'react-hot-toast';
 import NavBar from './components/common/NavBar';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -10,6 +11,7 @@ import styles from './App.module.css';
 function App() {
     return (
         <Router>
+            <Toaster position="top-right"/>
             <div className={styles.app}>
                 <NavBar/>
                 <main>

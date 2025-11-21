@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
-import Toast from '../common/Toast';
+import toast from 'react-hot-toast';
 import styles from './ContactForm.module.css';
 
 function ContactForm() {
@@ -10,15 +10,10 @@ function ContactForm() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState({ message: '', type: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const showToast = (message, type) => {
-    setToast({ message, type });
   };
 
   const handleSubmit = async (e) => {
@@ -26,12 +21,12 @@ function ContactForm() {
 
     // Validate fields
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      showToast('Please fill in all required fields.', 'failure');
+      toast.error('Fill all fields');
       return;
     }
 
     setIsSubmitting(true);
-    showToast('Processing your message...', 'processing');
+    const loadingToast = toast.loading('Sending...');
 
     try {
       const response = await fetch('/contact-handler.php', {
@@ -42,16 +37,29 @@ function ContactForm() {
         body: JSON.stringify(formData)
       });
 
+      if (!response.ok) {
+        // Handle non-2xx responses
+        let errorMessage = 'Send failed';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch {
+          // If JSON parse fails, use default message
+        }
+        toast.error(errorMessage, { id: loadingToast });
+        return;
+      }
+
       const result = await response.json();
 
       if (result.success) {
         setFormData({ name: '', email: '', message: '' });
-        showToast('Your message has been sent successfully!', 'success');
+        toast.success('Message sent!', { id: loadingToast });
       } else {
-        showToast(result.message || 'Failed to send your message. Please try again.', 'failure');
+        toast.error(result.message || 'Send failed', { id: loadingToast });
       }
     } catch (error) {
-      showToast('Network error. Please try again later.', 'failure');
+      toast.error('Network error', { id: loadingToast });
       console.error('Error:', error);
     } finally {
       setIsSubmitting(false);
@@ -59,53 +67,46 @@ function ContactForm() {
   };
 
   return (
-    <>
-      <form className={styles.contactForm} onSubmit={handleSubmit}>
-        <fieldset disabled>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name*"
-            className={styles.field}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email address*"
-            className={styles.field}
-            required
-          />
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Message*"
-            rows={6}
-            className={styles.field}
-            required
-          />
-          <button
-            type="submit"
-            className="button filled large"
-            disabled
-          >
-            <FaPaperPlane />
-            Submit
-          </button>
-        </fieldset>
-      </form>
-
-      <Toast
-        message={toast.message}
-        type={toast.type}
-        onClose={() => setToast({ message: '', type: '' })}
-      />
-    </>
+    <form className={styles.contactForm} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Your Name*"
+          className={styles.field}
+          maxLength={100}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Your Email address*"
+          className={styles.field}
+          maxLength={254}
+          required
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Message*"
+          rows={6}
+          className={styles.field}
+          maxLength={2000}
+          required
+        />
+        <button
+          type="submit"
+          className="button filled large"
+          disabled={isSubmitting}
+        >
+          <FaPaperPlane />
+          Submit
+        </button>
+    </form>
   );
 }
 

@@ -16,10 +16,6 @@ function Contact() {
                 <div className={styles.contactContainer}>
                     <div className={styles.formSection}>
                         <h2>Contact Form</h2>
-                        <p className={styles.altContact}>
-                            The contact form is currently un-available. You can send me an email directly at{' '}
-                            <a href="mailto:hello@qrofeus.dev">hello@qrofeus.dev</a>
-                        </p>
                         <ContactForm/>
                     </div>
 

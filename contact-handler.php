@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: https://qrofeus.dev');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -14,10 +14,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Get POST data
 $input = json_decode(file_get_contents('php://input'), true);
 
+// Validate JSON decode succeeded
+if (json_last_error() !== JSON_ERROR_NONE || !is_array($input)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Invalid request format']);
+    exit;
+}
+
 // Validate required fields
 if (empty($input['name']) || empty($input['email']) || empty($input['message'])) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'All fields are required']);
+    exit;
+}
+
+// Validate input lengths (max: name=100, email=254, message=2000)
+if (strlen($input['name']) > 100 || strlen($input['email']) > 254 || strlen($input['message']) > 2000) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Input exceeds maximum length']);
     exit;
 }
 
@@ -30,6 +44,13 @@ $message = htmlspecialchars(strip_tags(trim($input['message'])));
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Invalid email format']);
+    exit;
+}
+
+// Prevent email header injection - reject newlines in name and email
+if (preg_match("/[\r\n]/", $name) || preg_match("/[\r\n]/", $email)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Invalid characters in input']);
     exit;
 }
 
